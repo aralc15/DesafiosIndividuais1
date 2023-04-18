@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
-public class CadastroProduto {
+public class Mercadinho {
 
     public static void main(String[] args) {
-        Collection Produto = new ArrayList();
+        ArrayList Produto = new ArrayList();
 
 
-        ProdutoClass p1 = new ProdutoClass();
+        MercadinhoClass m1 = new MercadinhoClass();
         System.out.println("\n");
         System.out.println("\n");
         System.out.println("  //*********************************//\n // BEM-VINDO AO MERCADO ARAÚJO     //" +
@@ -40,12 +40,68 @@ public class CadastroProduto {
 
                     System.out.println("\n");
                     System.out.println("\n");
+                    int escolha = 0;
+                    while (escolha != 4) {
+                        escolha = Integer.parseInt(JOptionPane.showInputDialog("""
+                                Em qual setor está o procuto que deseja comprar?
+                                1 - Lanches e balas
+                                2 - Limpeza e Higiene
+                                3 - Bebidas
+                                4 - Frios e Açogue
+                                5 - Legumes e frutas
+                                6 - Padaria
+                                7 - Enlatados
+                                8 - Cereais
+                                9 - Continuar comprando
+                                10 - Finalizar Compra
+                                """));
+                        switch (escolha) {
+                            case 1 -> {
+                                System.out.println(m1.produtosEsco1());
+                            }
+                            case 10 -> {
+                                System.out.println("Ok, vamos finalizar sua compra: ");
+                                System.out.println("O total da sua conta é de :");
+                                Integer.parseInt(JOptionPane.showInputDialog("""
+                                        Qual a sua forma de pagamento??
+                                        
+                                        1- Cartão
+                                        2 - Dinheiro
+                                        """));
 
+
+
+                            }
+                        }
+
+
+
+
+
+                    }
 
                 }
 
-            }
-        /*try (Scanner entrada = new Scanner(System.in)) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*try (Scanner entrada = new Scanner(System.in)) {
             String continuar = "s";
             while ("s".equalsIgnoreCase(continuar)) {
                 System.out.print("SKU: ");
@@ -72,7 +128,8 @@ public class CadastroProduto {
         }
 
     } */
+            }
         }
-    }
 
+    }
 }
