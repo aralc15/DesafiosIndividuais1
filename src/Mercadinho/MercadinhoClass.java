@@ -1,6 +1,7 @@
  package Mercadinho;
 
  import javax.swing.*;
+ import java.util.Arrays;
  import java.util.Scanner;
 
  public class MercadinhoClass {
@@ -8,7 +9,9 @@
 
      String sku; // sku é um codigo que identifica unicamente o produto (vamos criar um conversão pro sku)
      String nome; // nome é
-     double valor;
+     double valor1;
+     double valor2;
+     String totalpagar;
 
      // getters e setters: Os
      // métodos GET e SET são técnicas padronizadas para gerenciamento sobre o acesso dos atributos.
@@ -68,6 +71,8 @@
 
      public String produtosEsco2() {
          System.out.println(" // Estes são nossos Produtos em estoque //");
+         System.out.println("\n");
+
          int esco2 = Integer.parseInt(JOptionPane.showInputDialog("""
                  -- 1 Sabonete Lux Botanicals 85 G Orquídea Negra R$ 02,50
                  -- 2 Detergente Capim Limão 500 Ml - Ypê R$ 03,50
@@ -78,6 +83,8 @@
                  """));
          int quantidade = Integer.parseInt(JOptionPane.showInputDialog("//# " +
                  "Em qual quantidade você deseja comprar este item #//"));
+         double[] [] notasDaTurma = new double[esco2] [quantidade];
+
          switch (esco2) {
              case 1 -> {
                  double valor2 = quantidade * 2.5;
@@ -113,6 +120,7 @@
              }
 
 
+
          }
 
 
@@ -120,7 +128,7 @@
      }
 
      public Double valortotal() {
-         double valortotal = valor + valor;
+         double valortotal = valor1 + valor2;
          return valortotal;
      }
 
@@ -131,6 +139,29 @@
                   1 -- CARTÃO
                   2 -- DINHEIRO
                  """));
+         switch (pag) {
+             case 1 -> {
+                 int debCred = Integer.parseInt("""
+                         1 -- Débito
+                         2 -- Crédito""");
+                 switch (debCred){
+                     case 1 -> {
+                         double pagdeb = Integer.parseInt(JOptionPane.showInputDialog("Quando deseja passar?"));
+                         for (int i = 0; i < 0; i++) {
+                             if (pagdeb == 0 ) {
+                                 System.out.println("Sua conta ja está quitada");
+                             } else {
+                                 System.out.println("Você ainda está devendo ;D");
+                             }
+
+
+                         }
+                     }
+
+                 }
+
+             }
+         }
          return null;
      }
 
