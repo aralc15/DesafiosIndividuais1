@@ -124,11 +124,26 @@ public class Mercadinho {
                         listarProdutos();
 
                     case 3:
+                        //cadastrarFuncionario();
+
+                   case 4:
+                       menu();
+                   case 5 :
+                       System.out.println("-------------------------------------------------------------------------");
+                       System.out.println("---------- ATÉ MAIS, ARAUJO´S MARKET AGRADEÇE A PREFERÊNCIA ;D ----------");
+                       System.out.println("-------------------------------------------------------------------------");
+                       System.exit(0);
+                   default:
+                       System.out.println("EPA ESSA OPÇÃO É INVALIDA ;D");
+                       menu();
+                       break;
+
 
                 }
 
             }else{
                 System.out.println("Login ou senha inválidos!\n");
+                funcaoFuncionario();
 
             }
 
@@ -146,7 +161,7 @@ public class Mercadinho {
         produtos.add(produto);
 
         System.out.println(produto.getNome() + " casdastrado com sucesso!! \n ");
-        menu();
+        funcaoFuncionario();
     }
 
 
