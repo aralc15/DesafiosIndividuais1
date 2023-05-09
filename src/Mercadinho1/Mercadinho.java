@@ -62,33 +62,29 @@ public class Mercadinho {
     }
 
     private static void Cliente(){
-        int escolha = 0;
-        while (escolha != 11) {
-            escolha = Integer.parseInt(JOptionPane.showInputDialog("""
+        int escolha = Integer.parseInt(JOptionPane.showInputDialog("""
             |-----------------------------------------------------------------------------------------------|
             |------------------------- WELCOME TO ARAUJO´S MARKET --------------------|
             |-----------------------------------------------------------------------------------------------|
             Em qual setor está o procuto que deseja comprar?
-            | 1 -- Listar Produtos
-            | 2 -- Comprar
-            | 3 -- Ver Carrinho
-            | 4 -- Voltar
+            |  1 -- Listar Produtos   |
+            |  2 -- Comprar           |
+            |  3 -- Ver Carrinho      |
+            |  4 -- Voltar            |
             """));
             switch (escolha) {
-                case 1 -> {
+                case 1:
                     listarProdutos();
-                }
-                case 2 -> {
+                    break;
+
+                case 2:
                     compraProdutos();
 
-                }
-                case 3 -> {
-                   menu();
-                }
-                case 4 -> {
+                    case 3:
+                   verCarrinho();
 
-                }
-
+                case 4:
+                    menu();
 
             }
 
@@ -96,14 +92,41 @@ public class Mercadinho {
 
 
 
+
+
+    }
+    private static void listarProdutos() {
+
+        if (produtos.size() > 0) {
+            System.out.println("---------- LISTA DE PRODUTOS: ---------- \n");
+            for (Produto p : produtos) {
+                System.out.println(p);
+                System.out.println("\n");
+            }
+
+        } else {
+            System.out.println(" Nenhum Produto Cadastrado \n");
         }
 
     }
+
+    private static void verCarrinho(){
+        System.out.println("---------- Produtos no seu carrinho ---------- \n");
+        if (carrinho.size() > 0){
+            for (Produto p : carrinho.keySet()) {
+                System.out.println("Produto: " + p + "\nQuantidade: " + carrinho.get(p));
+            }
+        } else {
+            System.out.println("---------- CARRINHO VAZIO ---------- \n");
+        }
+        menu();
+    }
+
     private static void funcaoFuncionario(){
         String login = JOptionPane.showInputDialog("Qual é o seu Login? ");
         String senha = JOptionPane.showInputDialog("Qual é a sua senha");
 
-        if(login.equals("claudio.assistente") && senha.equals("assis2023")){
+        if(senha.equals("admin2023")){
                 System.out.printf("\nUsuário %s logado com sucesso. \n", login);
                 System.out.println("|-------------------------------------------------------------------------|");
                 System.out.println("|------------------------- WELCOME TO ARAUJO´S MARKET --------------------|");
@@ -112,27 +135,25 @@ public class Mercadinho {
                 System.out.println("|-------------------------------------------------------------------------|");
                 System.out.println("|  Opção 1 - Cadastrar Produto         |");
                 System.out.println("|  Opção 2 - Listar                    |");
-                System.out.println("|  Opção 3 - Cadastrar Novo Funcioário |");
-                System.out.println("|  Opção 4 - Voltar |");
-                System.out.println("|  Opção 5 - Sair |");
+                System.out.println("|  Opção 3 - Voltar |");
+                System.out.println("|  Opção 4 - Sair |");
             int esco2 = entrada.nextInt();
                switch (esco2){
-                    case 1:
+                    case 1 :
                         cadastrarProduto();
 
-                    case 2:
-                        listarProdutos();
+                    case 2 :
+                        listarProdutosFuncionario();
 
-                    case 3:
-                        //cadastrarFuncionario();
-
-                   case 4:
+                   case 3 :
                        menu();
-                   case 5 :
+
+                   case 4 :
                        System.out.println("-------------------------------------------------------------------------");
                        System.out.println("---------- ATÉ MAIS, ARAUJO´S MARKET AGRADEÇE A PREFERÊNCIA ;D ----------");
                        System.out.println("-------------------------------------------------------------------------");
                        System.exit(0);
+
                    default:
                        System.out.println("EPA ESSA OPÇÃO É INVALIDA ;D");
                        menu();
@@ -146,6 +167,21 @@ public class Mercadinho {
                 funcaoFuncionario();
 
             }
+
+    }
+
+    private static void listarProdutosFuncionario() {
+        if (produtos.size() > 0) {
+            System.out.println("---------- LISTA DE PRODUTOS: ---------- \n");
+            for (Produto p : produtos) {
+                System.out.println(p);
+                System.out.println("\n");
+            }
+
+        } else {
+            System.out.println(" Nenhum Produto Cadastrado \n");
+        }
+        funcaoFuncionario();
 
     }
 
@@ -194,7 +230,7 @@ public class Mercadinho {
 
                     if (isPresente) {
                         System.out.println("Deseja comtinuar comprando? ");
-                        System.out.println("Digite 1 para continuar comprando ou 0 para finalizar compra atual: ");
+                        System.out.println("Digite 1 para continuar comprando, 0 para finalizar compra atual ou 2 ");
                         int esco = Integer.parseInt(entrada.next());
                         if (esco == 1) {
                             compraProdutos();
@@ -240,18 +276,6 @@ public class Mercadinho {
     }
 
 
-    private static void listarProdutos() {
-        if (produtos.size() > 0) {
-            System.out.println("---------- LISTA DE PRODUTOS: ---------- \n");
-            for (Produto p : produtos) {
-                System.out.println(p);
-                System.out.println("\n");
-            }
 
-        } else {
-            System.out.println(" Nenhum Produto Cadastrado \n");
-        }
-
-    }
 
 }

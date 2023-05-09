@@ -17,6 +17,11 @@ public class Produto {
         Produto.count += 1;
     }
 
+    public Produto(String nome, Double preco, String nome2,
+                   Double preco2, String nome3, Double preco3, String nome4,
+                   Double preco4, String nome5, Double preco5) {
+    }
+
     public int getId() {
         return IDP;
     }
@@ -42,4 +47,6 @@ public class Produto {
                 "\nPreço: " + utils.doubleToString(this.getPreco());
     }
 
+    public void add(Produto lanches) {
+    }
 }
